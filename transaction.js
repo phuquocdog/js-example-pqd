@@ -27,7 +27,7 @@ async function transferBalance (amount) {
     const factor = new BN(10).pow(decims);
     const amountUnit = new BN(amount).mul(factor);
 
-    console.log(amountUnit)
+    //console.log(amountUnit)
 
     // Create a extrinsic, transferring 12345 units to Bob
     const transfer = api.tx.balances.transfer(ADDR, amountUnit);

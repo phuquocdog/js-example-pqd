@@ -33,12 +33,15 @@ async function transferBalance (amount) {
     const transfer = api.tx.balances.transfer(ADDR, amountUnit);
 
     // Sign and send the transaction using our account
-    const hash = await transfer.signAndSend(alice);
+    //const hash = await transfer.signAndSend(alice);
+    const hash = await transfer.signAndSend(alice, { nonce: -1 });
 
     console.log('Transfer sent with hash', hash.toHex());
 
+
+
 }
 
-transferBalance(10).catch(console.error).finally(() => console.log('------Finish Demo getBalance ----'));
+transferBalance(20).catch(console.error).finally(() => console.log('------Finish Demo getBalance ----'));
 
 

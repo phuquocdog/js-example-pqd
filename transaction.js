@@ -5,8 +5,8 @@ const { Keyring } = require('@polkadot/keyring');
 
 const BN = require('bn.js');
 
-const ADDR = '5FUZZjdRkb7Z8YC7iTfPyNjtoc5zXvRw4kXqtpeVEituaRom';
-
+//const ADDR = '5FUZZjdRkb7Z8YC7iTfPyNjtoc5zXvRw4kXqtpeVEituaRom';
+const ADDR = '5G6gjdjDVhCWbU8QXFQbsgWYQUMV7CjsAorK7zawABab9Hoc';
 
 async function transferBalance (amount) {
 
@@ -25,7 +25,7 @@ async function transferBalance (amount) {
 
     const decims = new BN(api.registry.chainDecimals);
     const factor = new BN(10).pow(decims);
-    const amountUnit = new BN(amount).mul(factor);
+    const amountUnit = factor.imuln(amount);
 
     //console.log(amountUnit)
 
@@ -42,6 +42,6 @@ async function transferBalance (amount) {
 
 }
 
-transferBalance(20).catch(console.error).finally(() => console.log('------Finish Demo getBalance ----'));
+transferBalance(2.12345678).catch(console.error).finally(() => console.log('------Finish Demo getBalance ----'));
 
 

@@ -12,7 +12,9 @@ async function generateAddress () {
 	
 	// Constuct the keyring after the API (crypto has an async init)
     const keyring = new Keyring({ type: 'sr25519' });
-    //const phrase = mnemonicGenerate(12);
+ //   keyring.setSS58Format(42);
+ 
+   //const phrase = mnemonicGenerate(12);
     const phrase = "catalog away cool drum velvet collect vanish decorate potato picnic small marine";
     const {address} = keyring.addFromUri(phrase);
 

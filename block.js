@@ -10,11 +10,16 @@ async function generateBlock () {
 	const api = await ApiPromise.create({provider});
 	
 	// returns Hash
-	const blockNumber = 1853
-	const blockHash = await api.rpc.chain.getBlockHash(blockNumber);
+	//const blockNumber = 1853
+	// no blockHash is specified, so we retrieve the latest
+	const blockNumber = await api.rpc.chain.getBlock();
+
+	console.log('blockNumber: ' + blockNumber);
+
+	const blockHash = await api.rpc.chain.getBlockHash(blockNumber.number);
 
 	const signedBlock = await api.rpc.chain.getBlock(blockHash);
-
+	
 	console.log('blockHash: ' + blockHash);
 
 	console.log('signedBlock: ' + signedBlock);
